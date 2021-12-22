@@ -14,7 +14,17 @@ buttons.forEach(button => {
 
 buttons.forEach(button => {
 	button.addEventListener('click', () => {
-		if (button.className === 'num-btn') displayContent(button.textContent)
+		if (button.className === 'num-btn') {
+			displayContent(button.textContent)
+			if (firstNum !== null) {
+				if (secondNum === null) {
+					secondNum = display.textContent
+					return
+				}
+				secondNum = secondNum + display.textContent
+				displayContent(secondNum)
+			}
+		}
 	})
 })
 
@@ -28,9 +38,12 @@ function displayContent(content) {
 }
 
 function setEquation(type, sign) {
+	const content = display.textContent
 	equation = type
 	displayContent(sign)
-	firstNum = Number(display.textContent)
+	firstNum = Number(content)
+	calculate()
+	secondNum = null
 	console.log(firstNum)
 }
 
@@ -47,4 +60,29 @@ function deleteLast() {
 		return
 	}
 	display.textContent = display.textContent.slice(0, -1)
+}
+
+function calculate() {
+	let score = null
+	if (secondNum !== null) secondNum = Number(secondNum)
+	switch (equation) {
+		case 'add':
+			score = firstNum + secondNum
+			break
+		case 'substract':
+			score = firstNum - secondNum
+			break
+		case 'multiply':
+			score = firstNum * secondNum
+			break
+		case 'devide':
+			score = firstNum / secondNum
+			break
+		default:
+			alert('Not sure what you clicked O.o')
+	}
+	displayContent(score)
+	firstNum = score
+	secondNum = null
+	console.log(score)
 }

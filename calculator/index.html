@@ -22,31 +22,31 @@
 			<button class="fun-btn grid-col-span-2" onclick="clearDisplay()">
 				AC
 			</button>
-			<button class="fun-btn" data-type="divide">
+			<button class="fun-btn" onclick="setEquation('devide', ' /')">
 				<i class="fa-solid fa-divide"></i>
 			</button>
-			<button class="fun-btn" data-type="multiply">
+			<button class="fun-btn" onclick="setEquation('multiply', ' *')">
 				<i class="fa-solid fa-xmark"></i>
 			</button>
 
 			<button class="num-btn">7</button>
 			<button class="num-btn">8</button>
 			<button class="num-btn">9</button>
-			<button class="fun-btn" onclick="setEquation('substract')">
+			<button class="fun-btn" onclick="setEquation('substract', ' -')">
 				<i class="fa-solid fa-minus"></i>
 			</button>
 
 			<button class="num-btn">4</button>
 			<button class="num-btn">5</button>
 			<button class="num-btn">6</button>
-			<button class="fun-btn" onclick="setEquation('add', '+')">
+			<button class="fun-btn" onclick="setEquation('add', ' +')">
 				<i class="fa-solid fa-plus"></i>
 			</button>
 
 			<button class="num-btn">1</button>
 			<button class="num-btn">2</button>
 			<button class="num-btn">3</button>
-			<button class="fun-btn grid-row-span-2" data-type="equals">
+			<button class="fun-btn grid-row-span-2" onclick="calculate()">
 				<i class="fa-solid fa-equals"></i>
 			</button>
 
